@@ -22,6 +22,11 @@ class LighthouseReportsController < ApplicationController
   def create
     @lighthouse_report = LighthouseReport.new(lighthouse_report_params)
 
+    ps=Google::Apis::PagespeedonlineV5::PagespeedInsightsService.new
+    r=ps.runpagespeed_pagespeedapi(url: @lighthouse_report.url)
+
+    @lighthouse_report.json_report=r.to_json
+
     respond_to do |format|
       if @lighthouse_report.save
         format.html { redirect_to @lighthouse_report, notice: 'Lighthouse report was successfully created.' }
@@ -51,6 +56,6 @@ class LighthouseReportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lighthouse_report_params
-      params.fetch(:lighthouse_report, {})
+      params.fetch(:lighthouse_report, {}).permit(:url)
     end
 end
