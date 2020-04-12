@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lighthouse Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lighthouse_reports.each do |lighthouse_report| %>
+      <tr>
+        <td><%= link_to 'Show', lighthouse_report %></td>
+        <td><%= link_to 'Edit', edit_lighthouse_report_path(lighthouse_report) %></td>
+        <td><%= link_to 'Destroy', lighthouse_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lighthouse Report', new_lighthouse_report_path %>
