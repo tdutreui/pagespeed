@@ -1,5 +1,5 @@
 class LighthouseReportsController < ApplicationController
-  before_action :set_lighthouse_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_lighthouse_report, only: [:show, :destroy]
 
   # GET /lighthouse_reports
   # GET /lighthouse_reports.json
@@ -17,9 +17,6 @@ class LighthouseReportsController < ApplicationController
     @lighthouse_report = LighthouseReport.new
   end
 
-  # GET /lighthouse_reports/1/edit
-  def edit
-  end
 
   # POST /lighthouse_reports
   # POST /lighthouse_reports.json
@@ -42,19 +39,6 @@ class LighthouseReportsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /lighthouse_reports/1
-  # PATCH/PUT /lighthouse_reports/1.json
-  def update
-    respond_to do |format|
-      if @lighthouse_report.update(lighthouse_report_params)
-        format.html { redirect_to @lighthouse_report, notice: 'Lighthouse report was successfully updated.' }
-        format.json { render :show, status: :ok, location: @lighthouse_report }
-      else
-        format.html { render :edit }
-        format.json { render json: @lighthouse_report.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /lighthouse_reports/1
   # DELETE /lighthouse_reports/1.json
@@ -74,6 +58,6 @@ class LighthouseReportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lighthouse_report_params
-      params.require(:lighthouse_report).permit(:new, :create, :show, :destroy, :index)
+      params.require(:lighthouse_report).permit(:url)
     end
 end

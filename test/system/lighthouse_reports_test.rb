@@ -14,11 +14,8 @@ class LighthouseReportsTest < ApplicationSystemTestCase
     visit lighthouse_reports_url
     click_on "New Lighthouse Report"
 
-    fill_in "Create", with: @lighthouse_report.create
-    fill_in "Destroy", with: @lighthouse_report.destroy
-    fill_in "Index", with: @lighthouse_report.index
-    fill_in "New", with: @lighthouse_report.new
-    fill_in "Show", with: @lighthouse_report.show
+    fill_in "Score", with: @lighthouse_report.score
+    fill_in "Url", with: @lighthouse_report.url
     click_on "Create Lighthouse report"
 
     assert_text "Lighthouse report was successfully created"
@@ -29,11 +26,8 @@ class LighthouseReportsTest < ApplicationSystemTestCase
     visit lighthouse_reports_url
     click_on "Edit", match: :first
 
-    fill_in "Create", with: @lighthouse_report.create
-    fill_in "Destroy", with: @lighthouse_report.destroy
-    fill_in "Index", with: @lighthouse_report.index
-    fill_in "New", with: @lighthouse_report.new
-    fill_in "Show", with: @lighthouse_report.show
+    fill_in "Score", with: @lighthouse_report.score
+    fill_in "Url", with: @lighthouse_report.url
     click_on "Update Lighthouse report"
 
     assert_text "Lighthouse report was successfully updated"

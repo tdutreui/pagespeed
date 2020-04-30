@@ -1,21 +1,10 @@
 p#notice = notice
 
 p
-  strong New:
-  = @lighthouse_report.new
+  strong Url:
+  = @lighthouse_report.url
 p
-  strong Create:
-  = @lighthouse_report.create
-p
-  strong Show:
-  = @lighthouse_report.show
-p
-  strong Destroy:
-  = @lighthouse_report.destroy
-p
-  strong Index:
-  = @lighthouse_report.index
+  strong Score:
+  = @lighthouse_report.score
 
-=> link_to 'Edit', edit_lighthouse_report_path(@lighthouse_report)
-'|
 =< link_to 'Back', lighthouse_reports_path

@@ -3,25 +3,17 @@ h1 Listing lighthouse_reports
 table
   thead
     tr
-      th New
-      th Create
-      th Show
-      th Destroy
-      th Index
-      th
+      th Url
+      th Score
       th
       th
 
   tbody
     - @lighthouse_reports.each do |lighthouse_report|
       tr
-        td = lighthouse_report.new
-        td = lighthouse_report.create
-        td = lighthouse_report.show
-        td = lighthouse_report.destroy
-        td = lighthouse_report.index
+        td = lighthouse_report.url
+        td = lighthouse_report.score
         td = link_to 'Show', lighthouse_report
-        td = link_to 'Edit', edit_lighthouse_report_path(lighthouse_report)
         td = link_to 'Destroy', lighthouse_report, data: { confirm: 'Are you sure?' }, method: :delete
 
 br

@@ -17,7 +17,7 @@ class LighthouseReportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lighthouse_report" do
     assert_difference('LighthouseReport.count') do
-      post lighthouse_reports_url, params: { lighthouse_report: { create: @lighthouse_report.create, destroy: @lighthouse_report.destroy, index: @lighthouse_report.index, new: @lighthouse_report.new, show: @lighthouse_report.show } }
+      post lighthouse_reports_url, params: { lighthouse_report: { score: @lighthouse_report.score, url: @lighthouse_report.url } }
     end
 
     assert_redirected_to lighthouse_report_url(LighthouseReport.last)
@@ -34,7 +34,7 @@ class LighthouseReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lighthouse_report" do
-    patch lighthouse_report_url(@lighthouse_report), params: { lighthouse_report: { create: @lighthouse_report.create, destroy: @lighthouse_report.destroy, index: @lighthouse_report.index, new: @lighthouse_report.new, show: @lighthouse_report.show } }
+    patch lighthouse_report_url(@lighthouse_report), params: { lighthouse_report: { score: @lighthouse_report.score, url: @lighthouse_report.url } }
     assert_redirected_to lighthouse_report_url(@lighthouse_report)
   end
 
