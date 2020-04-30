@@ -1,12 +1,12 @@
 p#notice = notice
 
+=< link_to 'Back', lighthouse_reports_path
+
 p
   strong Url:
   = @lighthouse_report.url
 
 javascript:
   let lightHouseReport=#{@lighthouse_report.report['lighthouseResult'].to_json.html_safe}
-  console.log(lightHouseReport)
 = render "google_lighthouse"
 
-=< link_to 'Back', lighthouse_reports_path
