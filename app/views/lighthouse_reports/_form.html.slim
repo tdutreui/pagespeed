@@ -1,0 +1,24 @@
+= form_for @lighthouse_report do |f|
+  - if @lighthouse_report.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@lighthouse_report.errors.count, "error")} prohibited this lighthouse_report from being saved:"
+      ul
+        - @lighthouse_report.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :new
+    = f.text_field :new
+  .field
+    = f.label :create
+    = f.text_field :create
+  .field
+    = f.label :show
+    = f.text_field :show
+  .field
+    = f.label :destroy
+    = f.text_field :destroy
+  .field
+    = f.label :index
+    = f.text_field :index
+  .actions = f.submit

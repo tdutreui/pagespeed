@@ -14,9 +14,29 @@ class LighthouseReportsTest < ApplicationSystemTestCase
     visit lighthouse_reports_url
     click_on "New Lighthouse Report"
 
+    fill_in "Create", with: @lighthouse_report.create
+    fill_in "Destroy", with: @lighthouse_report.destroy
+    fill_in "Index", with: @lighthouse_report.index
+    fill_in "New", with: @lighthouse_report.new
+    fill_in "Show", with: @lighthouse_report.show
     click_on "Create Lighthouse report"
 
     assert_text "Lighthouse report was successfully created"
+    click_on "Back"
+  end
+
+  test "updating a Lighthouse report" do
+    visit lighthouse_reports_url
+    click_on "Edit", match: :first
+
+    fill_in "Create", with: @lighthouse_report.create
+    fill_in "Destroy", with: @lighthouse_report.destroy
+    fill_in "Index", with: @lighthouse_report.index
+    fill_in "New", with: @lighthouse_report.new
+    fill_in "Show", with: @lighthouse_report.show
+    click_on "Update Lighthouse report"
+
+    assert_text "Lighthouse report was successfully updated"
     click_on "Back"
   end
 
