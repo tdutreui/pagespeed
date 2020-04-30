@@ -1,5 +1,5 @@
 class LighthouseReportsController < ApplicationController
-  before_action :set_lighthouse_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_lighthouse_report, only: [:show, :destroy]
 
   # GET /lighthouse_reports
   # GET /lighthouse_reports.json
