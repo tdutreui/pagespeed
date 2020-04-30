@@ -24,7 +24,7 @@ class LighthouseReportsController < ApplicationController
     @lighthouse_report = LighthouseReport.new(lighthouse_report_params)
 
     ps=Google::Apis::PagespeedonlineV5::PagespeedInsightsService.new
-    r=ps.runpagespeed_pagespeedapi(url: @lighthouse_report.url)
+    r=ps.runpagespeed_pagespeedapi(url: @lighthouse_report.url, strategy: 'mobile')
 
     @lighthouse_report.json_report=r.to_json
 
