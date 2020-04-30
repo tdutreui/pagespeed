@@ -1,0 +1,7 @@
+.hello
+  p Hello !
+
+.try
+  p Make your web pages fast on all devices
+  -@lighthouse_report=LighthouseReport.new
+  == render 'lighthouse_reports/form'
