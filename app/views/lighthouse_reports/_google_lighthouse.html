@@ -2032,7 +2032,8 @@ limitations under the License.
             }
         </style>
 
-        <div id="lh-topbar" class="lh-topbar">
+        <div id="lh-topbar"
+             class="lh-topbar">
             <!-- Lighthouse logo.  -->
             <svg class="lh-topbar__logo"
                  viewBox="0 0 24 24">
@@ -2342,37 +2343,44 @@ limitations under the License.
                 flex: 1;
             }
         </style>
-        <footer class="lh-footer">
-            <!-- TODO(i18n): localize runtime settings -->
-            <div class="lh-env">
-                <div class="lh-env__title">
-                    Runtime
-                    Settings
+        <details>
+            <summary>
+                Test
+                environment
+            </summary>
+            <footer class="lh-footer">
+                <!-- TODO(i18n): localize runtime settings -->
+                <div class="lh-env">
+                    <div id="lh-env__title"
+                         class="lh-env__title">
+                        Runtime
+                        Settings
+                    </div>
+                    <ul class="lh-env__items">
+                        <template
+                                id="tmpl-lh-env__items">
+                            <li class="lh-env__item">
+                                <span class="lh-env__name"></span>
+                                <span class="lh-env__description"></span>
+                            </li>
+                        </template>
+                    </ul>
                 </div>
-                <ul class="lh-env__items">
-                    <template
-                            id="tmpl-lh-env__items">
-                        <li class="lh-env__item">
-                            <span class="lh-env__name"></span>
-                            <span class="lh-env__description"></span>
-                        </li>
-                    </template>
-                </ul>
-            </div>
 
-            <div class="lh-generated">
-                Generated
-                by
-                <b>Lighthouse</b>
-                <span class="lh-footer__version"></span>
-                |
-                <a href="https://github.com/GoogleChrome/Lighthouse/issues"
-                   target="_blank"
-                   rel="noopener">File
-                    an
-                    issue</a>
-            </div>
-        </footer>
+                <div class="lh-generated">
+                    Generated
+                    by
+                    <b>Lighthouse</b>
+                    <span class="lh-footer__version"></span>
+                    |
+                    <a href="https://github.com/GoogleChrome/Lighthouse/issues"
+                       target="_blank"
+                       rel="noopener">File
+                        an
+                        issue</a>
+                </div>
+            </footer>
+        </details>
     </template>
 
     <!-- Lighthouse score gauge -->
