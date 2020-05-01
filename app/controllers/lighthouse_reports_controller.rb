@@ -1,10 +1,14 @@
 class LighthouseReportsController < ApplicationController
-  before_action :set_lighthouse_report, only: [:show, :destroy]
+  before_action :set_lighthouse_report, only: [:show, :destroy,:detail]
 
   # GET /lighthouse_reports
   # GET /lighthouse_reports.json
   def index
     @lighthouse_reports = LighthouseReport.all
+  end
+
+  def detail
+    @detail=@lighthouse_report.report(params[:strategy])['lighthouseResult'].to_json.html_safe
   end
 
   # GET /lighthouse_reports/1
@@ -22,11 +26,6 @@ class LighthouseReportsController < ApplicationController
   # POST /lighthouse_reports.json
   def create
     @lighthouse_report = LighthouseReport.new(lighthouse_report_params)
-
-    ps=Google::Apis::PagespeedonlineV5::PagespeedInsightsService.new
-    r=ps.runpagespeed_pagespeedapi(url: @lighthouse_report.url, strategy: 'mobile')
-
-    @lighthouse_report.json_report=r.to_json
 
     respond_to do |format|
       if @lighthouse_report.save
@@ -53,7 +52,7 @@ class LighthouseReportsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lighthouse_report
-      @lighthouse_report = LighthouseReport.find(params[:id])
+      @lighthouse_report = LighthouseReport.find(params[:id] || params[:lighthouse_report_id])
     end
 
     # Only allow a list of trusted parameters through.

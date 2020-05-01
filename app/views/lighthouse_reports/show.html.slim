@@ -5,8 +5,10 @@ p#notice = notice
 p
   strong Url:
   = @lighthouse_report.url
+  strong Score mobile:
+  = link_to @lighthouse_report.score_mobile, lighthouse_report_detail_path(@lighthouse_report,strategy: 'mobile')
+  strong Score desktop:
+  = link_to @lighthouse_report.score_desktop, lighthouse_report_detail_path(@lighthouse_report,strategy: 'desktop')
 
-javascript:
-  let lightHouseReport=#{@lighthouse_report.report['lighthouseResult'].to_json.html_safe}
-= render "google_lighthouse"
+
 

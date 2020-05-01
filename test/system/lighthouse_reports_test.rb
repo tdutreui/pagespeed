@@ -14,7 +14,6 @@ class LighthouseReportsTest < ApplicationSystemTestCase
     visit lighthouse_reports_url
     click_on "New Lighthouse Report"
 
-    fill_in "Score", with: @lighthouse_report.score
     fill_in "Url", with: @lighthouse_report.url
     click_on "Create Lighthouse report"
 
@@ -26,7 +25,6 @@ class LighthouseReportsTest < ApplicationSystemTestCase
     visit lighthouse_reports_url
     click_on "Edit", match: :first
 
-    fill_in "Score", with: @lighthouse_report.score
     fill_in "Url", with: @lighthouse_report.url
     click_on "Update Lighthouse report"
 

@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_113615) do
+ActiveRecord::Schema.define(version: 2020_05_01_142044) do
 
   create_table "lighthouse_reports", force: :cascade do |t|
-    t.text "json_report"
+    t.text "json_report_desktop"
     t.string "url"
-    t.integer "score"
+    t.integer "score_desktop"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "valid_url"
+    t.text "json_report_mobile"
+    t.integer "score_mobile"
   end
 
   create_table "users", force: :cascade do |t|
