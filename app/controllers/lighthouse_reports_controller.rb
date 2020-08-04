@@ -4,7 +4,7 @@ class LighthouseReportsController < ApplicationController
   # GET /lighthouse_reports
   # GET /lighthouse_reports.json
   def index
-    @lighthouse_reports = LighthouseReport.all
+    @lighthouse_reports = LighthouseReport.where(user: current_user)
   end
 
   def detail
@@ -26,6 +26,7 @@ class LighthouseReportsController < ApplicationController
   # POST /lighthouse_reports.json
   def create
     @lighthouse_report = LighthouseReport.new(lighthouse_report_params)
+    @lighthouse_report.user=current_user
 
     respond_to do |format|
       if @lighthouse_report.save
