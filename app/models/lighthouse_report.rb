@@ -1,18 +1,22 @@
 class LighthouseReport < ApplicationRecord
+  include PagespeedApiClient
+
+  validates :user, presence: true
   validates :url, presence: {message: "URL must be provided"}
   validates :valid_url, url: true
 
   before_create :do_lighthouse_report!
   before_validation :set_valid_url
 
-  def do_lighthouse_report!
-    ps = Google::Apis::PagespeedonlineV5::PagespeedInsightsService.new
-    r = ps.runpagespeed_pagespeedapi(url: self.valid_url, strategy: 'mobile')
+  belongs_to :user
 
+  def do_lighthouse_report!
+    r = run_pagespeed(url: self.valid_url, strategy: 'mobile')
     self.json_report_mobile = r.to_json
 
-    r = ps.runpagespeed_pagespeedapi(url: self.valid_url, strategy: 'desktop')
+    r = run_pagespeed(url: self.valid_url, strategy: 'desktop')
     self.json_report_desktop = r.to_json
+
     self.set_scores!
   end
 
