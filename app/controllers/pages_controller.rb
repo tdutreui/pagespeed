@@ -25,6 +25,7 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
+    @page.project=current_project
 
     respond_to do |format|
       if @page.save
@@ -69,6 +70,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:path, :project_id)
+      params.require(:page).permit(:url)
     end
 end

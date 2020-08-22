@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    set_current_project(@project)
   end
 
   # GET /projects/new
@@ -25,6 +26,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @project.user=current_user
 
     respond_to do |format|
       if @project.save
@@ -69,6 +71,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :domain, :user_id)
+      params.require(:project).permit(:name, :domain)
     end
 end

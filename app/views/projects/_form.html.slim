@@ -8,11 +8,8 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, placeholder: 'My website'
   .field
     = f.label :domain
-    = f.text_field :domain
-  .field
-    = f.label :user
-    = f.text_field :user
+    = f.text_field :domain, placeholder: 'example.com'
   .actions = f.submit

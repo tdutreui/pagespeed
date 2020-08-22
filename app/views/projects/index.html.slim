@@ -1,24 +1,12 @@
-h1 Listing projects
+h1 Select project
 
-table
-  thead
-    tr
-      th Name
-      th Domain
-      th User
-      th
-      th
-      th
+- @projects.each do |project|
+  ul.projects-listing
+    li
+      = link_to "#{project.name} #{project.domain}", project
+      span = link_to 'Edit', edit_project_path(project)
+      span = link_to 'Destroy', project, data: {confirm: 'Are you sure?'}, method: :delete
 
-  tbody
-    - @projects.each do |project|
-      tr
-        td = project.name
-        td = project.domain
-        td = project.user
-        td = link_to 'Show', project
-        td = link_to 'Edit', edit_project_path(project)
-        td = link_to 'Destroy', project, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
