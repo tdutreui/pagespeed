@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pages
+  resources :projects
   devise_for :users
   resources :lighthouse_reports, except: [:edit, :update] do
     get 'detail/:strategy', action: :detail, as: :detail

@@ -4,7 +4,8 @@ class LighthouseReportsController < ApplicationController
   # GET /lighthouse_reports
   # GET /lighthouse_reports.json
   def index
-    @lighthouse_reports = LighthouseReport.where(user: current_user)
+    redirect_to root_path if current_project.blank?
+    @lighthouse_reports = LighthouseReport.where(project: current_project)
   end
 
   def detail
@@ -25,8 +26,10 @@ class LighthouseReportsController < ApplicationController
   # POST /lighthouse_reports
   # POST /lighthouse_reports.json
   def create
-    @lighthouse_report = LighthouseReport.new(lighthouse_report_params)
-    @lighthouse_report.user=current_user
+    @lighthouse_report = LighthouseReport.new
+    page=Page.new(lighthouse_report_params.slice(:url))
+    page.project=current_project
+    @lighthouse_report.page=page
 
     respond_to do |format|
       if @lighthouse_report.save
