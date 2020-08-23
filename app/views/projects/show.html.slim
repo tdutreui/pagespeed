@@ -7,6 +7,13 @@ p
   strong Domain:
   = @project.domain
 
+ul
+- @project.pages.each do |page|
+  li
+    span =page.path
+    span =link_to 'Rapports', page
+
+
 h2 Monitor a new page
 p Performance is checked daily, an email will warn you in case of significant change.
 == render 'pages/form'
