@@ -2,7 +2,7 @@ class LighthouseReport < ApplicationRecord
   include PagespeedApiClient
 
   before_create :do_lighthouse_report!
-  belongs_to :page, autosave: true
+  belongs_to :page
 
   delegate :url, to: :page
 

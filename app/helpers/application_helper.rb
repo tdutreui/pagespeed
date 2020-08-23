@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ProjectsConcern
 
   def after_sign_in_path(user)
     if current_project
@@ -9,4 +10,6 @@ module ApplicationHelper
       projects_path
     end
   end
+
+
 end

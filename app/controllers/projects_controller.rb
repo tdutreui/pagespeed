@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include ProjectsConcern
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -38,7 +39,6 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update

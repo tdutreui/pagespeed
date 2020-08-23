@@ -2,16 +2,21 @@ class Page < ApplicationRecord
   require 'uri'
 
   belongs_to :project, optional: true
-  has_one :lighthouse_report
+  has_many :lighthouse_reports
   before_validation :set_valid_url
+  after_create :attach_lighthouse_report
 
 
   validates :url, presence: {message: "URL must be provided"}
-  validates :valid_url, url: true, uniqueness: true
+  validates :valid_url, url: true, uniqueness:  { scope: :project,
+                                                  message: "url already exist in this project" }
 
+  def attach_lighthouse_report
+    LighthouseReport.create(page: self)
+  end
 
   def path
-    uri = URI::parse('http://stackoverflow.com/questions/ask')
+    uri = URI::parse(valid_url)
     uri.path
   end
 
