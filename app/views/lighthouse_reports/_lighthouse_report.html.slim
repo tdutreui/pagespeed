@@ -1,0 +1,10 @@
+p
+  strong Score mobile:
+  = lighthouse_report.score_mobile
+  strong Score desktop:
+  = lighthouse_report.score_desktop
+
+
+= component 'google_lighthouse', strategy_report: lighthouse_strategy_report(lighthouse_report, 'desktop')
+= render 'lighthouse_reports/google_lighthouse', strategy_report: lighthouse_strategy_report(lighthouse_report, 'desktop')
+-#= render 'lighthouse_reports/google_lighthouse', strategy_report: lighthouse_strategy_report(lighthouse_report, 'mobile')

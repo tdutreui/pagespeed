@@ -1,7 +1,10 @@
 p#notice = notice
 
 p
-  strong Path:
+  strong Page:
   = @page.path
+
+h2 Dernier rapport :
+==render @page.lighthouse_reports.last
 
 =< link_to 'Back', @page.project
