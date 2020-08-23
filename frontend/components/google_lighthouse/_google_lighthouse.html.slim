@@ -1,2 +1,7 @@
 .google-lighthouse(data-controller="google-lighthouse")
-  | google_lighthouse_component
+  - strategies.each do |strategy|
+    .google-lighthouse-nav(data-target='google-lighthouse.action' data-action="click->google-lighthouse#show" data-strategy=strategy)
+      .google-lighthouse-nav-text =strategy
+  - strategies.each do |strategy|
+    .google-lighthouse-report(data-target='google-lighthouse.report' data-strategy=strategy)
+      = render 'google_report', strategy_report: lighthouse_strategy_report(@lighthouse_report, strategy)

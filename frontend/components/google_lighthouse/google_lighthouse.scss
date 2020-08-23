@@ -1,0 +1,8 @@
+.google-lighthouse {
+  &-nav {
+    cursor: pointer;
+    &.is-active {
+      text-decoration: underline;
+    }
+  }
+}

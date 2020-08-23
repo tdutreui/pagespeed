@@ -5,6 +5,4 @@ p
   = lighthouse_report.score_desktop
 
 
-= component 'google_lighthouse', strategy_report: lighthouse_strategy_report(lighthouse_report, 'desktop')
-= render 'lighthouse_reports/google_lighthouse', strategy_report: lighthouse_strategy_report(lighthouse_report, 'desktop')
--#= render 'lighthouse_reports/google_lighthouse', strategy_report: lighthouse_strategy_report(lighthouse_report, 'mobile')
+= component 'google_lighthouse', lighthouse_report: lighthouse_report

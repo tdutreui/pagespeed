@@ -2,4 +2,8 @@
 
 module GoogleLighthouseComponent
   extend ComponentHelper
+
+  def strategies
+    ['mobile','desktop']
+  end
 end
