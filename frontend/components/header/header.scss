@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  &-logo {
+    margin: auto
+  }
+  &-list{
+    list-style: none;
+    display: flex;
+    &-item{
+      :hover{
+        border-bottom: solid;
+      }
+      a {
+        padding: 1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

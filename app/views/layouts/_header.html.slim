@@ -1,13 +1,2 @@
 .header
   = c "header"
-  ul
-    - if current_user.present?
-      li
-        =link_to "My workspace", after_sign_in_path(current_user)
-      li
-        =link_to 'Logout', destroy_user_session_path, method: :delete
-    - else
-      li
-        = link_to 'Sign in', new_user_session_path
-      li
-        = link_to 'Register', new_user_registration_path

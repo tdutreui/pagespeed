@@ -1,4 +1,4 @@
-import "./header.css";
+import "./header.scss";
 import {Application} from "stimulus";
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 const context = require.context('./', true, /_controller\.js$/);
