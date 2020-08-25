@@ -1,0 +1,7 @@
+.billboard-text-panel
+  - items.each do |item|
+    .billboard-text-panel-item
+      h2.billboard-text-panel-item-title
+        =item[:title]
+      .billboard-text-panel-item-text
+        =item[:text].html_safe
