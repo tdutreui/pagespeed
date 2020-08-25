@@ -1,7 +1,10 @@
 .header {
   display: flex;
   &-logo {
-    margin: auto
+    margin: auto;
+    :hover {
+      color: black;
+    }
   }
   &-list{
     list-style: none;
@@ -17,4 +20,5 @@
       }
     }
   }
+
 }
