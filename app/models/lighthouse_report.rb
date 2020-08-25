@@ -18,8 +18,8 @@ class LighthouseReport < ApplicationRecord
 
 
   def set_scores!
-    self.score_desktop = self.report('desktop')['lighthouseResult']["categories"]["performance"]["score"] * 100 rescue nil
-    self.score_mobile = self.report('mobile')['lighthouseResult']["categories"]["performance"]["score"] * 100 rescue nil
+    self.score_desktop = (self.report('desktop')['lighthouseResult']["categories"]["performance"]["score"] * 100).round rescue nil
+    self.score_mobile = (self.report('mobile')['lighthouseResult']["categories"]["performance"]["score"] * 100).round rescue nil
   end
 
   def report strategy
