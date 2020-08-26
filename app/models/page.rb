@@ -4,14 +4,14 @@ class Page < ApplicationRecord
   belongs_to :project, optional: true
   has_many :lighthouse_reports
   before_validation :set_valid_url
-  after_create :attach_lighthouse_report
+  after_create :add_lighthouse_report
 
 
   validates :url, presence: {message: "URL must be provided"}
   validates :valid_url, url: true, uniqueness:  { scope: :project,
                                                   message: "url already exist in this project" }
 
-  def attach_lighthouse_report
+  def add_lighthouse_report
     LighthouseReport.create(page: self)
   end
 

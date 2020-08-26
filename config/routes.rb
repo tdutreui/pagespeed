@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :pages
+  resources :pages do
+    post 'analyse', on: :collection
+  end
   resources :projects
   devise_for :users
   resources :lighthouse_reports, except: [:edit, :update] do

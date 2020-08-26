@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(page_params)
-    @page.project=current_project
+    @page.project = current_project
 
     respond_to do |format|
       if @page.save
@@ -35,6 +35,31 @@ class PagesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def analyse
+    @page = Page.new(page_params)
+    @page.project = current_project
+    @page.set_valid_url
+
+    existing_page = Page.find_by(project_id: @page.project_id, valid_url: @page.valid_url)
+    if existing_page
+      existing_page.add_lighthouse_report
+      respond_to do |format|
+        format.html { redirect_to existing_page }
+        format.json { render :show, status: :ok, location: @page }
+      end
+    else
+      respond_to do |format|
+        if @page.save
+          format.html { redirect_to @page, notice: 'Page was successfully created.' }
+          format.json { render :show, status: :created, location: @page }
+        else
+          format.html { render :root }
+          format.json { render json: @page.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -64,13 +89,14 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def page_params
-      params.require(:page).permit(:url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def page_params
+    params.require(:page).permit(:url)
+  end
 end

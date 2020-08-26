@@ -8,5 +8,5 @@
 
   .field
     = f.label :url
-    = f.text_field :url, placeholder: 'Enter a web page URL'
+    = f.text_field :url, placeholder: 'Enter a web page URL', required: true
   .actions = f.submit 'Analyze'
