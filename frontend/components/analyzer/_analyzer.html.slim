@@ -1,0 +1,7 @@
+.analyzer
+  = form_for Page.new, url: analyse_pages_path do |f|
+    .analyzer-field
+      = f.label :url
+      = f.text_field :url, value: @url, placeholder: 'Enter a web page URL', required: true
+    .analyzer-submit
+      = f.submit 'Analyze'

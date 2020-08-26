@@ -1,0 +1,16 @@
+@import "../../../base/colors.scss";
+.analyzer-bar {
+  &.is-blue {
+    background: $googleblue
+  }
+
+  &.is-white {
+    background: white;
+  }
+
+  &-container {
+    width: 50%;
+    margin: auto;
+    padding: 1rem 0;
+  }
+}

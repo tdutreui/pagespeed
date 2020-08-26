@@ -1,10 +1,4 @@
-p#notice = notice
-
-p
-  strong Page:
-  = @page.path
-
-h2 Dernier rapport :
+= c 'analyzer/bar', url: @page.url
 ==render @page.lighthouse_reports.last
 
 =< link_to 'Back', @page.project
