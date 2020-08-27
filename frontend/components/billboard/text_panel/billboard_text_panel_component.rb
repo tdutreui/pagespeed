@@ -10,7 +10,7 @@ module BillboardTextPanelComponent
     [
       {
         title: "Get notified",
-        text: "Receive an email on the next day if anything goes wrong with your pages performance"
+        text: "Receive an email on the next day if anything goes wrong with your pages performance. View daily tests' report history."
       },
       {
         title: "What's new",
