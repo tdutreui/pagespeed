@@ -1,13 +1,5 @@
-h1 Select project
-
-- @projects.each do |project|
-  ul.projects-listing
-    li
-      = link_to "#{project.name} #{project.domain}", project
-      span = link_to 'Edit', edit_project_path(project)
-      span = link_to 'Destroy', project, data: {confirm: 'Are you sure?'}, method: :delete
-
-
-br
+h2 My projects
 
 = link_to 'New Project', new_project_path
+
+= c 'projects/table', projects: @projects
