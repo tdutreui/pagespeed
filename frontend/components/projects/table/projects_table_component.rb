@@ -8,13 +8,26 @@ module ProjectsTableComponent
       {
         header: 'Website',
         proc: Proc.new do |project|
-            link_to "#{project.name} #{project.domain}", project
+          [
+            project.name,
+            link_to( project.domain, project)
+          ].join("<br/>")
           end
       }, {
-        header: 'Actions',
+        header: 'Score mobile',
+        proc: Proc.new do |project|
+          component('google_lighthouse/score', score: project.score_mobile)
+        end
+      }, {
+        header: 'Score desktop',
+        proc: Proc.new do |project|
+          component('google_lighthouse/score', score: project.score_desktop)
+        end
+      }, {
+        header: '',
         proc: Proc.new do |project|
             [link_to('Edit', edit_project_path(project)),
-            link_to('Destroy', project, data: {confirm: 'Are you sure?'}, method: :delete)].join("\n")
+            link_to('Destroy', project, data: {confirm: 'Are you sure?'}, method: :delete)].join(" ")
           end
       }
     ]

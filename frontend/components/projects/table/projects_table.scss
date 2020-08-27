@@ -1,1 +1,27 @@
-.projects-table {}
+@import "../../../base/colors.scss";
+
+.projects-table {
+  &-header {
+    color: $google_grey;
+    &-item {
+      text-align: right;
+    }
+
+    &-item:first-of-type {
+              text-align: left;
+              min-width: 10rem
+    }
+  }
+
+  &-row {
+    max-height: 1rem;
+    &-item {
+      text-align: right;
+    }
+
+    &-item:first-of-type {
+      text-align: left;
+    }
+  }
+
+}

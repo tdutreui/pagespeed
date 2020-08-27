@@ -1,10 +1,13 @@
 .projects-table(data-controller="projects-table")
-  .projects-table-header
-    - columns.each do |c|
-      .projects-table-header-item
-        = c[:header]
-  - @projects.each do |project|
-    .projects-table-row
-      - columns.each do |c|
-        .projects-table-row-item
-          =c[:proc].call(project).html_safe
+  table
+    thead
+      tr.projects-table-header
+        - columns.each do |c|
+          th.projects-table-header-item
+            = c[:header]
+    tbody
+      - @projects.each do |project|
+        tr.projects-table-row
+          - columns.each do |c|
+            td.projects-table-row-item
+              =c[:proc].call(project).html_safe

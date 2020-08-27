@@ -11,6 +11,14 @@ class Page < ApplicationRecord
   validates :valid_url, url: true, uniqueness:  { scope: :project,
                                                   message: "url already exist in this project" }
 
+  def score_mobile
+    lighthouse_reports.last.score_mobile
+  end
+
+  def score_desktop
+    lighthouse_reports.last.score_desktop
+  end
+
   def add_lighthouse_report
     LighthouseReport.create(page: self)
   end

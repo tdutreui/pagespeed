@@ -1,4 +1,5 @@
 import "./google_lighthouse.scss";
+import "./lib/google_lighthouse.scss";
 
 import {Application} from "stimulus";
 import { definitionsFromContext } from "stimulus/webpack-helpers"
