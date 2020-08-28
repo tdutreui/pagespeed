@@ -1,5 +1,6 @@
-h2 My projects
-
-= link_to 'New Project', new_project_path
+.projects-head
+  h2 My projects
+  .projects-head-action
+    = c 'button', label: 'New Project', href: new_project_path
 
 = c 'projects/table', projects: @projects

@@ -1,9 +1,9 @@
--@size||=80
+-@size||=60
 .google-lighthouse-score(class="lh-vars")
   .lh-gauge__wrapper(class="lh-gauge__wrapper--#{score_category @score}")
     .lh-gauge__svg-wrapper
       svg.lh-gauge(style="width: #{@size*0.66}px" viewbox="0 0 #{@size} #{@size}")
         circle.lh-gauge-base(r=@size/2-4 cx=@size/2 cy=@size/2)
-        circle.lh-gauge-arc[transform="rotate(-90 #{@size/2} #{@size/2})" r=@size/2-4 cx=@size/2 cy=@size/2 style="stroke-dasharray: #{@score*352/100}px, 352px;stroke-width: #{@size/15}"]
+        circle.lh-gauge-arc[transform="rotate(-90 #{@size/2} #{@size/2})" r=@size/2-4 cx=@size/2 cy=@size/2 style="stroke-dasharray: #{@score*@size/120*352/100}px, 352px;stroke-width: #{@size/15}"]
     .lh-gauge__percentage(style="font-size: #{@size/4}px")
       =@score

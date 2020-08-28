@@ -1,0 +1,14 @@
+@import "../../base/colors.scss";
+.button {
+  a {
+    padding: 0.7rem 1rem;
+    background: $google_darkblue;
+    border-radius: .15rem;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+}
