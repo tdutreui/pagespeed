@@ -1,0 +1,7 @@
+import "./<%= name_with_namespace %>.<%= stylesheet_engine %>";
+<%- if stimulus? -%>
+import {Application} from "stimulus";
+import { definitionsFromContext } from "stimulus/webpack-helpers"
+const context = require.context('./', true, /_controller\.js$/);
+Application.start().load(definitionsFromContext(context))
+<%- end -%>
