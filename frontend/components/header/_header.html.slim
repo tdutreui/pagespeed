@@ -1,7 +1,8 @@
 .header(data-controller="header")
-  .header-logo
-    =link_to APPNAME, root_path
-  ul.header-list
-    -links.each do |item|
-      li.header-list-item
-        =link_to(item[:name], item[:href], item[:options])
+  .header-content
+    .header-content-logo
+      =link_to APPNAME, root_path
+    ul.header-content-list
+      -links.each do |item|
+        li.header-content-list-item
+          =link_to(item[:name], item[:href], item[:options])

@@ -1,30 +1,44 @@
+@import "../../base/colors.scss";
+
 .header {
   display: flex;
+  justify-content: center;
 
-  &-logo {
-    margin: auto;
-    padding-left: 8rem;
-
-    :hover {
-      color: black;
-    }
-  }
-
-  &-list {
-    list-style: none;
+  &-content {
+    align-content: center;
     display: flex;
+    min-width: 70rem;
 
-    &-item {
-      :hover {
-        border-bottom: solid;
-      }
+    &-logo {
+      display: flex;
+      align-content: center;
 
       a {
-        padding: 0.8rem;
-        text-decoration: none;
-        text-transform: uppercase;
+        margin: auto
+      }
+
+      :hover {
+        color: black;
       }
     }
-  }
 
+    &-list {
+      list-style: none;
+      display: flex;
+
+      &-item {
+        :hover {
+          border-bottom: solid;
+        }
+
+        a {
+          color: $google_grey;
+          padding: 0.8rem;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+  }
 }
