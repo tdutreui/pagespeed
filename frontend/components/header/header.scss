@@ -1,18 +1,24 @@
 .header {
   display: flex;
+
   &-logo {
     margin: auto;
+    padding-left: 8rem;
+
     :hover {
       color: black;
     }
   }
-  &-list{
+
+  &-list {
     list-style: none;
     display: flex;
-    &-item{
-      :hover{
+
+    &-item {
+      :hover {
         border-bottom: solid;
       }
+
       a {
         padding: 0.8rem;
         text-decoration: none;
