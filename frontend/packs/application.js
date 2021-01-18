@@ -9,3 +9,6 @@
 
 import 'base'
 import 'components'
+import Rails from "@rails/ujs"
+
+Rails.start()
