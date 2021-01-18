@@ -17,9 +17,6 @@
         margin: auto
       }
 
-      :hover {
-        color: black;
-      }
     }
 
     &-list {
@@ -28,7 +25,9 @@
 
       &-item {
         :hover {
+          color: $google_darkgrey;
           border-bottom: solid;
+          border-bottom-color: $google_darkblue;
         }
 
         a {
