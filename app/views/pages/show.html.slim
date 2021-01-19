@@ -1,4 +1,4 @@
 = c 'analyzer/bar', url: @page.url
-==render @page.lighthouse_reports.last
+= c 'reports_list'
+==render @report
 
-=< link_to 'Back', @page.project

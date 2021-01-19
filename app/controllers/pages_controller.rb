@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @report=@page.lighthouse_reports.last
   end
 
   # GET /pages/new

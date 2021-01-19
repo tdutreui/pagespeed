@@ -2,7 +2,10 @@ class Page < ApplicationRecord
   require 'uri'
 
   belongs_to :project, optional: true
+
   has_many :lighthouse_reports
+  alias_attribute :reports,:lighthouse_reports
+
   before_validation :set_valid_url
   after_create :add_lighthouse_report
 

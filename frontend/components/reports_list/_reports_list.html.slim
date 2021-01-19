@@ -1,0 +1,8 @@
+.reports-list(data-controller="reports-list")
+  .reports-list-title
+    |This page reports
+  - reports.each do |r|
+    =link_to r, class: "reports-list-item #{'reports-list-item-active' if active(r)}", data: {date: r.created_at.to_s} do
+      ="report #{r.id}"
+      .reports-list-item-score(alt='mobile performance score' class="lh-gauge__wrapper--#{score_category(r.score_mobile)}")
+        =r.score_mobile

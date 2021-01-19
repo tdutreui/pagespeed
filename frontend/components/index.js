@@ -7,3 +7,4 @@ import "components/google_lighthouse";
 import "components/google_lighthouse/google_lighthouse";
 import "components/header/header";
 import "components/projects";
+import "components/reports_list/reports_list";
