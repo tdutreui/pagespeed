@@ -8,6 +8,6 @@ module ReportsListComponent
   end
 
   def active report
-    reports.size==1 || report==@report
+    reports.size>1 && report==@report
   end
 end

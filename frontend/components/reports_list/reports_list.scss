@@ -19,20 +19,51 @@
   background-color: $grayEE;
 }
   &-item {
+    position: relative;
     padding-top: 0.2rem;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
     display: flex;
     justify-content: space-between;
     text-decoration: none;
-
     &-active{
-      cursor: none;
-      pointer-events: none;
+      font-weight: bold;
     }
 
     &-score {
+    }
+
+
+    &-tooltip {
+      font-weight: normal;
+      display: none;
+      background-color: $google_blue;
+      border-radius: .4rem;
+      box-shadow: 0 .3rem 1rem 0 rgba($black, .15);
+      position: absolute;
+      padding: 0.4rem;
+      top: -0.1rem;
+      left: 10rem;
+      width: 10rem;
+      &-content {
+      }
+
+      //pointe
+      &:after {
+        content: "";
+        border-width: .5rem;//taille de la flèche
+        border-style: solid;
+        border-color: transparent $google_blue transparent transparent; //direction
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 0.5rem;
+        left: -1rem;
+      }
 
     }
+
   }
+
+
 }

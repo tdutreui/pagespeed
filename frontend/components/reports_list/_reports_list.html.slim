@@ -2,7 +2,16 @@
   .reports-list-title
     |This page reports
   - reports.each do |r|
-    =link_to r, class: "reports-list-item #{'reports-list-item-active' if active(r)}", data: {date: r.created_at.to_s} do
+    =link_to r, class: "reports-list-item #{'reports-list-item-active' if active(r)}", data: {target: 'reports-list.item'} do
       ="report #{r.id}"
       .reports-list-item-score(alt='mobile performance score' class="lh-gauge__wrapper--#{score_category(r.score_mobile)}")
         =r.score_mobile
+      .reports-list-item-tooltip(data-target='reports-list.tooltip')
+        .reports-list-item-tooltip-content
+          -date=r.created_at
+          span
+          - if active(r)
+            = "Current report"
+            br
+          =(date.today? ? 'Today' : l(date, format: '%Y-%m-%d %H:%M'))
+
