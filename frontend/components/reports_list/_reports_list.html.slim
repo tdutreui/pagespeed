@@ -1,5 +1,7 @@
 .reports-list(data-controller="reports-list")
   .reports-list-title
+    = c "icon", icon: "clock"
+
     |This page reports
   - reports.each do |r|
     =link_to r, class: "reports-list-item #{'reports-list-item-active' if active(r)}", data: {target: 'reports-list.item'} do
