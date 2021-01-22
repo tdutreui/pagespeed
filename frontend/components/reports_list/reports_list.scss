@@ -37,8 +37,6 @@
     &-tooltip {
       font-weight: normal;
       display: none;
-      background-color: $google_blue;
-      border-radius: .4rem;
       box-shadow: 0 .3rem 1rem 0 rgba($black, .15);
       position: absolute;
       padding: 0.4rem;
@@ -46,8 +44,10 @@
       left: 10rem;
       width: 10rem;
       &-content {
+        font-size: small;
+        font-weight: lighter;
       }
-
+/*
       //pointe
       &:after {
         content: "";
@@ -59,7 +59,7 @@
         position: absolute;
         top: 0.5rem;
         left: -1rem;
-      }
+      }*/
 
     }
 
