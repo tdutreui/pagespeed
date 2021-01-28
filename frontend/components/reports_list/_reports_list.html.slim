@@ -17,3 +17,8 @@
             br
           =(date.today? ? 'Today' : l(date, format: '%Y-%m-%d %H:%M'))
 
+  .reports-list-item.reports-list-item-final(data-target= 'reports-list.item')
+    =link_to 'Page overview', @page
+    .reports-list-item-tooltip(data-target='reports-list.tooltip')
+      .reports-list-item-tooltip-content
+        = @page.valid_url
