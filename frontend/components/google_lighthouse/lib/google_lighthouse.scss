@@ -87,11 +87,13 @@ For colors: --color-{hue}-{intensity}
   --env-name-min-width: 220px;
   --footer-padding-vertical: 16px;
   --gauge-circle-size-big: 112px;
-  --gauge-circle-size: 80px;
+
+  --gauge-circle-size: 40px;//was 80px
   --gauge-label-font-size-big: 28px;
   --gauge-label-font-size: 20px;
   --gauge-label-line-height-big: 36px;
   --gauge-label-line-height: 26px;
+
   --gauge-percentage-font-size-big: 38px;
   --gauge-percentage-font-size: 28px;
   --gauge-wrapper-width: 148px;

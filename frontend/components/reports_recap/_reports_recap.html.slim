@@ -1,0 +1,8 @@
+.reports-recap
+  - headers.each do |h|
+    .reports-recap-header
+      = h
+  - @reports.each do |report|
+    - cells(report).each do |cell|
+      .reports-recap-item
+        = cell

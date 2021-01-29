@@ -10,12 +10,11 @@
         =r.score_mobile
       .reports-list-item-tooltip(data-target='reports-list.tooltip')
         .reports-list-item-tooltip-content
-          -date=r.created_at
           span
           - if active(r)
             = "Current report"
             br
-          =(date.today? ? 'Today' : l(date, format: '%Y-%m-%d %H:%M'))
+          =humanized_report_time(r)
 
   .reports-list-item.reports-list-item-final(data-target= 'reports-list.item')
     =link_to 'Page overview', @page

@@ -13,4 +13,8 @@ module LighthouseReportsHelper
       'pass'
     end
   end
+
+  def humanized_report_time report
+    l(report.created_at, format: '%Y-%m-%d - %H:%M')
+  end
 end
