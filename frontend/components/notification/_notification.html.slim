@@ -1,0 +1,5 @@
+.notification(data-controller="notification" data-target="notification.block" id="notification")
+  .notification-icon
+  .notification-text(data-target="notification.content")
+  .notification-close(data-action="click->notification#hide")
+    = c "icon", icon: "close-small"

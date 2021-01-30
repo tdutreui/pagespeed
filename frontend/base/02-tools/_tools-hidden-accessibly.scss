@@ -1,0 +1,17 @@
+///* ========================================================================
+//   #HIDDEN ACCESSIBLY
+//   ======================================================================== */
+
+// Hide elements accessibly
+// based on the last method described at
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin hidden-accessibly {
+  border: 0 !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px; width: 1px;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+}

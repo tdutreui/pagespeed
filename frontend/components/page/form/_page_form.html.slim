@@ -1,0 +1,11 @@
+.page-form(data-controller='page-form')
+  =form_with(model: @page) do |f|
+    .page-form-fields
+      =f.label :daily_run, 'Run daily'
+      =f.check_box :daily_run
+      =f.label :weekly_run, 'Run weekly'
+      =f.check_box :weekly_run
+      =f.label :send_drop_alert_email,'Email me when performance drops'
+      =f.check_box :send_drop_alert_email
+    .page-form-submit
+      =f.submit 'Update reports preferences'

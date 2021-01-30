@@ -1,0 +1,53 @@
+@import "../01-settings/_settings-breakpoints";
+
+///* ========================================================================
+//   #RESPONSIVE
+//   ======================================================================== */
+
+
+$large-max: $xlarge-width - 0.1px;
+@mixin large {
+  @media (min-width: $large-width) and (max-width: $large-max) {
+    @content;
+  }
+}
+@mixin large-all {
+  @media (max-width: $large-max) {
+    @content;
+  }
+}
+
+$medium-max: $large-width - 0.1px;
+@mixin medium-all {
+  @media (max-width: $medium-max) {
+    @content;
+  }
+}
+
+$medium-max: $large-width - 0.1px;
+@mixin medium {
+  @media (min-width: $medium-width) and (max-width: $medium-max) {
+    @content;
+  }
+}
+
+$small-all-max: $medium-width - 0.1px;
+@mixin small-all {
+  @media (max-width: $small-all-max) {
+    @content;
+  }
+}
+
+$small-max: $small-width - 0.1px;
+@mixin small {
+  @media (max-width: $small-max) {
+    @content;
+  }
+}
+
+$xsmall-max: $xsmall-width - 0.1px;
+@mixin xsmall {
+  @media (max-width: $xsmall-max) {
+    @content;
+  }
+}

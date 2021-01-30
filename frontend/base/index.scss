@@ -1,3 +1,20 @@
 @import "colors";
 @import "layout";
+
 @import "node_modules/normalize-scss/sass/_normalize.scss";
+
+// Settings
+@import '01-settings/_settings-animations';
+@import '01-settings/_settings-breakpoints';
+@import '01-settings/_settings-colors';
+@import '01-settings/_settings-layout';
+@import '01-settings/_settings-typography';
+
+
+// Tools
+@import '02-tools/_tools-animations';
+@import '02-tools/_tools-clearfix';
+@import '02-tools/_tools-form';
+@import '02-tools/_tools-hidden-accessibly';
+@import '02-tools/_tools-on-event';
+@import '02-tools/_tools-responsive';

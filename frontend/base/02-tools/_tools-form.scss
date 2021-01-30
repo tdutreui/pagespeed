@@ -1,0 +1,52 @@
+///* ========================================================================
+//   #FORM
+//   ======================================================================== */
+
+
+// Define the color of input placeholder
+@mixin input-color-placeholder($color) {
+  // WebKit browsers
+  &::-webkit-input-placeholder {
+    color:    $color;
+  }
+  // Mozilla Firefox 4 to 18
+  &:-moz-placeholder {
+    color:    $color;
+    opacity:  1;
+  }
+  // Mozilla Firefox 19+
+  &::-moz-placeholder {
+    color:    $color;
+    opacity:  1;
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color:    $color;
+  }
+  &::-ms-input-placeholder {
+    color:    $color;
+  }
+}
+
+// Define the font of input placeholder
+@mixin input-font-placeholder($font) {
+  // WebKit browsers
+  &::-webkit-input-placeholder {
+    font-family:    $font;
+  }
+  // Mozilla Firefox 4 to 18
+  &:-moz-placeholder {
+    font-family:    $font;
+  }
+  // Mozilla Firefox 19+
+  &::-moz-placeholder {
+    font-family:    $font;
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    font-family:    $font;
+  }
+  &::-ms-input-placeholder {
+    font-family:    $font;
+  }
+}

@@ -7,6 +7,8 @@ import "components/google_lighthouse";
 import "components/google_lighthouse/google_lighthouse";
 import "components/header/header";
 import "components/icon/icon";
+import "components/notification/notification";
+import "components/page";
 import "components/projects";
 import "components/reports_list/reports_list";
 import "components/reports_recap/reports_recap";

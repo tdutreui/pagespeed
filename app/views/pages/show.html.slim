@@ -1,6 +1,6 @@
 = c 'analyzer/bar', url: @page.url
 .layout-container
-  h1 Page history
+  h1 Page speed history
   h2 =@page.valid_url
   = c 'reports_recap', reports: @page.reports
-
+  = c 'page/form', page: @page

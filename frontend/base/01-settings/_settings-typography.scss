@@ -1,0 +1,19 @@
+/* ==========================================================================
+   #typography
+   ========================================================================== */
+
+// ##### WEIGHT FONT ##### //
+$font-regular  : normal;
+$font-medium   : 500;
+$font-semibold : 600;
+$font-bold     : bold;
+
+$font-family-base          : 'Source_sans_pro', sans-serif;
+$font-family-base-semibold : 'Source_sans_pro_semibold', sans-serif;
+$font-family-base-bold     : 'Source_sans_pro_bold', sans-serif;
+
+$font-family-title        : 'Ubuntu_bold', sans-serif;
+$font-family-title-medium : 'Ubuntu_medium', sans-serif;
+
+$base-font-size : 1.6em;
+$base-font-weight: $font-regular;

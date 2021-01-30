@@ -1,0 +1,15 @@
+.page-form {
+  width: 30rem;
+  margin: 3rem auto auto auto;
+  &-fields {
+    display: flex;
+    justify-content: center;
+    input {
+      margin-right: 1rem;
+    }
+  }
+  &-submit {
+    display: flex;
+    justify-content: center;
+  }
+}
