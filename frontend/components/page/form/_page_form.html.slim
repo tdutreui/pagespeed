@@ -1,5 +1,5 @@
 .page-form(data-controller='page-form')
-  =form_with(model: @page) do |f|
+  =form_with(model: @page, html: {autocomplete: 'off'}) do |f|
     .page-form-fields
       =f.label :daily_run, 'Run daily'
       =f.check_box :daily_run

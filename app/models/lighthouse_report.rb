@@ -2,11 +2,11 @@ class LighthouseReport < ApplicationRecord
   include PagespeedApiClient
 
   before_create :do_lighthouse_report!
-  after_create :send_score_drop_alert
+  after_create :send_score_drop_alert, if: :send_drop_alert_email
   belongs_to :page
   has_one :user, through: :page
 
-  delegate :url, :valid_url, to: :page
+  delegate :send_drop_alert_email, :url, :valid_url, to: :page
 
   def do_lighthouse_report!
     r = run_pagespeed(url: page.valid_url, strategy: 'mobile')

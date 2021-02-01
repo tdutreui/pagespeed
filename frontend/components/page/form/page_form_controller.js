@@ -6,5 +6,8 @@ export default class extends Controller {
     this.element.addEventListener("ajax:success", (event) => {
       displayNotification("Updated", 'validate')
     });
+    this.element.addEventListener("ajax:error", (event) => {
+      displayNotification("Error", 'error')
+    });
   }
 }
