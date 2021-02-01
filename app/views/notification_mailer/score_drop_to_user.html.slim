@@ -1,0 +1,10 @@
+p A web page you are following suffered a performance drop today.
+
+p Url : #{@report.url}
+
+- [@previous_report, @report].each do |report|
+  span #{@previous_report == report ? 'Previous report' : 'Current report'}
+  ul
+    li Benchmark date : #{humanized_report_time(report)}
+    li Mobile score : #{report.score_mobile}
+    li Desktop score : #{report.score_desktop}

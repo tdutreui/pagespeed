@@ -2,6 +2,7 @@ class Page < ApplicationRecord
   require 'uri'
 
   belongs_to :project, optional: true
+  has_one :user, through: :project
 
   has_many :lighthouse_reports
   alias_attribute :reports,:lighthouse_reports

@@ -37,10 +37,14 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 #user auth
 gem 'devise'
 
+#cron
+gem 'whenever', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'debase'
+  gem "letter_opener"
 end
 
 group :development do
