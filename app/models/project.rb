@@ -13,6 +13,10 @@ class Project < ApplicationRecord
     mean pages.map(&:score_desktop)
   end
 
+  def display_name
+    name || domain
+  end
+
   private
 
   def mean a

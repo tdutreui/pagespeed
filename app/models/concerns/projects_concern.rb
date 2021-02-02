@@ -8,6 +8,10 @@ def current_project
   @current_project
 end
 
+  def current_project?
+    current_project.present?
+  end
+
 def set_current_project(project)
   session[:current_project_id]=project.id
 end
