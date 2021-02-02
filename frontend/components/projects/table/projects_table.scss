@@ -2,7 +2,6 @@
 
 .projects-table {
 
-
   table {
     border-collapse: collapse;
     border-radius: 4px;
@@ -38,13 +37,16 @@
     max-height: 1rem;
 
     &-item {
-      text-align: right;
+      text-align: center;
     }
 
     &-item:first-of-type {
       text-align: left;
     }
 
+    &-item:last-of-type {
+      text-align: right;
+    }
   }
 
 }

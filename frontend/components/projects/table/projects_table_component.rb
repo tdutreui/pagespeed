@@ -16,12 +16,22 @@ module ProjectsTableComponent
       }, {
         header: 'Score mobile',
         proc: Proc.new do |project|
-          component('google_lighthouse/score', score: project.score_mobile)
+          component('google_lighthouse/score', score: project.mean_score_mobile.round)
         end
       }, {
         header: 'Score desktop',
         proc: Proc.new do |project|
-          component('google_lighthouse/score', score: project.score_desktop)
+          component('google_lighthouse/score', score: project.mean_score_desktop.round)
+        end
+      }, {
+        header: 'Pages',
+        proc: Proc.new do |project|
+          project.pages.count.to_s
+        end
+      }, {
+        header: 'Reports',
+        proc: Proc.new do |project|
+          project.reports.count.to_s
         end
       }, {
         header: '',
