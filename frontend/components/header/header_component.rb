@@ -6,6 +6,7 @@ module HeaderComponent
   def links
     items = []
     if current_user.present?
+      items << {name: 'My projects', href: projects_path} if current_user.projects.count>1
       items << {name: current_project? ? "Project #{current_project.display_name}" : 'My projects', href: projects_menu_path}
       items << {name: 'Logout', href: destroy_user_session_path, options: {method: :delete}}
     else

@@ -15,4 +15,9 @@ end
 def set_current_project(project)
   session[:current_project_id]=project.id
 end
+
+
+  def mean a
+    a.sum(0.0) / a.size
+  end
 end

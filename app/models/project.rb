@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  include ProjectsConcern
   belongs_to :user
   has_many :pages
   has_many :lighthouse_reports, through: :pages
@@ -17,9 +18,5 @@ class Project < ApplicationRecord
     name || domain
   end
 
-  private
 
-  def mean a
-    a.sum(0.0) / a.size
-  end
 end

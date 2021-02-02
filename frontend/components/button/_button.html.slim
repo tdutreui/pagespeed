@@ -1,2 +1,2 @@
-.button
-  =link_to @label, @href, @options
+.button(*{data: @data})
+  =link_to @label, @href||'#', @options

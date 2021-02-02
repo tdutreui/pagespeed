@@ -1,0 +1,8 @@
+.projects-recap(data-controller="projects-recap")
+  - headers.each do |h|
+    .projects-recap-cell.projects-recap-header
+      = h
+  - @pages.each do |page|
+    - columns.each do |c|
+      .projects-recap-cell
+        = c[:proc].call(page).html_safe

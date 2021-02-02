@@ -1,0 +1,10 @@
+.projects-header(data-controller='projects-header')
+  .projects-header-info
+    .projects-header-info-name
+      = @project.name
+    .projects-header-info-domain
+      = @project.domain
+  .projects-header-buttons
+    = c 'button', label: 'Edit details', href: edit_project_path(@project)
+    = c 'button', label: 'Add page', data: {action: 'click->projects-header#showAnalyzer'}
+-#= c "analyzer/bar"

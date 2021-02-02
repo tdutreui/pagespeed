@@ -1,0 +1,16 @@
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  &-info {
+
+    &-name{
+      font-weight: bold;
+    }
+  }
+  &-buttons {
+    display: flex;
+    .button {
+      margin: 0.2rem;
+    }
+  }
+}

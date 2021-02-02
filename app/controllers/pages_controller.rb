@@ -94,6 +94,6 @@ class PagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def page_params
-    params.require(:page).permit(:daily_run, :weekly_run, :send_drop_alert_email)
+    params.require(:page).permit(:url,:daily_run, :weekly_run, :send_drop_alert_email)
   end
 end

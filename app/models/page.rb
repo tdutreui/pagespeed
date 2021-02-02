@@ -32,6 +32,11 @@ class Page < ApplicationRecord
     uri.path
   end
 
+  def domain
+    uri = URI::parse(valid_url)
+    uri.hostname
+  end
+
   def set_valid_url
     self.valid_url = url_with_proto
   end
