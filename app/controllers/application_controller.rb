@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   require 'google/apis/pagespeedonline_v5'
 
-  def root
+  def home
 
   end
 

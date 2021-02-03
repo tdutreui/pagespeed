@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :update, :destroy]
 
   # GET /pages
   # GET /pages.json
@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @current_page='page'
   end
 
   # GET /pages/new
@@ -52,7 +53,7 @@ class PagesController < ApplicationController
           format.html { redirect_to @page, notice: 'Page was successfully created.' }
           format.json { render :show, status: :created, location: @page }
         else
-          format.html { render :root }
+          format.html { render :home }
           format.json { render json: @page.errors, status: :unprocessable_entity }
         end
       end

@@ -25,4 +25,9 @@ module HeaderComponent
       projects_path
     end
   end
+
+  def theme
+    white_theme_pages=['home', 'report', 'page']
+    "is-blue" unless white_theme_pages.include? current_page
+  end
 end

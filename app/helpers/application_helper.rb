@@ -11,5 +11,9 @@ module ApplicationHelper
     end
   end
 
+  def current_page
+    @current_page || action_name
+  end
+
 
 end
