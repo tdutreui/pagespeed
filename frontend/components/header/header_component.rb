@@ -3,11 +3,18 @@
 module HeaderComponent
   extend ComponentHelper
 
-  def links
+  def left_links
     items = []
     if current_user.present?
-      items << {name: 'My projects', href: projects_path} if current_user.projects.count>1
+      items << {name: 'My projects', href: projects_path}
       items << {name: current_project? ? "Project #{current_project.display_name}" : 'My projects', href: projects_menu_path}
+    end
+    items
+  end
+
+  def right_links
+    items = []
+    if current_user.present?
       items << {name: 'Logout', href: destroy_user_session_path, options: {method: :delete}}
     else
       items << {name: 'Sign in', href: new_user_session_path}

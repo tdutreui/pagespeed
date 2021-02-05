@@ -7,23 +7,27 @@
 
   .is-blue {
     background-color: $google_blue;
+
     .header-content {
 
       &-logo > a {
         color: white;
       }
 
-      &-list {
-        &-item {
-          :hover {
-            border-bottom-color: white;
-            font-weight: bold;
-          }
+      &-lists {
+        &-list {
+          &-item {
+            :hover {
+              border-bottom-color: white;
+              font-weight: bold;
+            }
 
-          a {
-            color: white;
+            a {
+              color: white;
+            }
           }
-        }}
+        }
+      }
     }
   }
 
@@ -42,22 +46,27 @@
 
     }
 
-    &-list {
-      list-style: none;
+    &-lists {
+      width: 100%;
       display: flex;
+      justify-content: space-between;
+      &-list {
+        list-style: none;
+        display: flex;
 
-      &-item {
-        :hover {
-          color: $google_darkgrey;
-          border-bottom: solid;
-          border-bottom-color: $google_darkblue;
-        }
+        &-item {
+          :hover {
+            color: $google_darkgrey;
+            border-bottom: solid;
+            border-bottom-color: $google_darkblue;
+          }
 
-        a {
-          color: $google_grey;
-          padding: 0.8rem;
-          text-decoration: none;
-          text-transform: uppercase;
+          a {
+            color: $google_grey;
+            padding: 0.8rem;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
         }
       }
     }

@@ -2,7 +2,12 @@
   .header-content
     .header-content-logo
       =link_to APPNAME, root_path
-    ul.header-content-list
-      -links.each do |item|
-        li.header-content-list-item
-          =link_to(item[:name], item[:href], item[:options])
+    .header-content-lists
+      ul.header-content-lists-list
+        -left_links.each do |item|
+          li.header-content-lists-list-item
+            =link_to(item[:name], item[:href], item[:options])
+      ul.header-content-lists-list
+        -right_links.each do |item|
+          li.header-content-lists-list-item
+            =link_to(item[:name], item[:href], item[:options])
