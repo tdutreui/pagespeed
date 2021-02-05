@@ -2,9 +2,8 @@
 .projects-recap {
 
   margin: auto;
-  width: 60%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 4fr repeat(4, 1fr);
   align-items: center;
   justify-items: center;
 
