@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :pages do
+  resources :pages, except: [:create] do
     post 'analyse', on: :collection
   end
   resources :projects
