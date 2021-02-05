@@ -36,9 +36,10 @@ module ProjectsTableComponent
       }, {
         header: '',
         proc: Proc.new do |project|
-            [link_to('Show', project_path(project)),
+            [link_to('Switch', project_path(project)),
              link_to('Edit', edit_project_path(project)),
-            link_to('Destroy', project, data: {confirm: 'Are you sure?'}, method: :delete)].join(" ")
+            ].join(" ")
+            #link_to('Destroy', project, data: {confirm: 'Are you sure?'}, method: :delete)
           end
       }
     ]
