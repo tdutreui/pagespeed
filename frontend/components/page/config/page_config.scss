@@ -27,19 +27,21 @@
     margin: 0 1rem 0 0;
     width: auto;
     .page-form-fields {
-      font-size: 1rem;
       display: grid;
       grid-template-columns: 1fr 1rem;
-      margin: 0;
+      grid-row-gap: 0.4rem;
+      line-height: 0.8rem;
+      align-items: center;
+      padding-bottom: 0.7rem;
     }
-
   }
 
   &-visibility {
     cursor: pointer;
     display: block;
-    span {
-    }
+    border-top: solid;
+    border-width: thin;
+    border-color: $google_grey;
   }
 
   &-item {
