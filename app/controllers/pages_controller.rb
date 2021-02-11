@@ -46,7 +46,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
-    if @page.user == current_user
+    if current_user && @page.user == current_user
       respond_to do |format|
         if @page.update(page_params)
           format.json { render :show, status: :ok, location: @page }

@@ -1,0 +1,12 @@
+.page-config(data-controller="page-config")
+  .page-config-title
+    = c "icon", icon: "misc2"
+    |This page config
+
+  .page-config-actions.page-config-item
+    = c 'page/form'
+  .page-config-visibility.page-config-item(data-target='page-config.item')
+    |Visibility : Public
+    .page-config-item-tooltip(data-target='page-config.tooltip')
+      .page-config-item-tooltip-content
+        | Anyone with the URL can view this report.

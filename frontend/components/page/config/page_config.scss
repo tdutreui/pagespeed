@@ -1,13 +1,13 @@
-@import "../../base/colors.scss";
+@import "../../../base/colors.scss";
 
-.reports-list {
+.page-config {
   background-color: white;
   z-index: 9;
   display: flex;
   flex-direction: column;
 
   position: fixed;
-  top: 15rem;
+  top: 30rem;
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
   max-width: 12rem;
 
@@ -23,24 +23,34 @@
     }
   }
 
-&-item:hover {
-  background-color: $grayEE;
-}
+  .page-form {
+    margin: 0 1rem 0 0;
+    width: auto;
+    .page-form-fields {
+      font-size: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1rem;
+      margin: 0;
+    }
+
+  }
+
+  &-visibility {
+    cursor: pointer;
+    display: block;
+    span {
+    }
+  }
+
   &-item {
     position: relative;
-    padding-top: 0.2rem;
+    padding-top: 0.5rem;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
     display: flex;
     justify-content: space-between;
     text-decoration: none;
-    &-active{
-      font-weight: bold;
-    }
-
-    &-score {
-    }
-
+    flex-direction: column;
 
     &-tooltip {
       font-weight: normal;
@@ -58,26 +68,6 @@
         font-size: small;
         font-weight: lighter;
       }
-/*
-      //pointe
-      &:after {
-        content: "";
-        border-width: .5rem;//taille de la flèche
-        border-style: solid;
-        border-color: transparent $google_blue transparent transparent; //direction
-        height: 0;
-        width: 0;
-        position: absolute;
-        top: 0.5rem;
-        left: -1rem;
-      }*/
-
     }
-
   }
-  &-item-final {
-    justify-content: center;
-  }
-
-
 }
