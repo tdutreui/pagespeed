@@ -13,11 +13,6 @@ class PagesController < ApplicationController
     @current_page='page'
   end
 
-  # GET /pages/new
-  def new
-    @page = Page.new
-  end
-
   def analyse
     @page = Page.new(page_params)
     @page.project = current_project
