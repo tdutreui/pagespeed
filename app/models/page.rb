@@ -43,15 +43,14 @@ class Page < ApplicationRecord
       #A safe way to test a URL is to reach it
       uri = URI(url_with_proto)
       res = Net::HTTP.get_response(uri)
-
+      raise "Unable to reach URL" unless res.code && res.code != "500"
+      self.valid_url = url_with_proto
     rescue => err
       Rails.logger.error(err)
       Rails.logger.error(err.backtrace)
-      raise "Invalid url"
+      false #abort hooks chain and validation
     end
-    raise "Unable to reach URL" unless res.code && res.code != "500"
 
-    self.valid_url = url_with_proto
   end
 
   private
