@@ -6,8 +6,10 @@ FactoryBot.define do
     end
     password { "password" }
 
-    after(:create) do |user, evaluator|
-      create_list(:project, 1, user: user)
+    factory :user_with_project do
+      after(:create) do |user, evaluator|
+        create_list(:project, 1, user: user)
+      end
     end
   end
 end

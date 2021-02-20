@@ -35,13 +35,13 @@ RSpec.describe "Pages", type: :request do
 
     context "logged in" do
       before do
-        u = create(:user)
+        u = create(:user_with_project)
         @current_project = u.projects.first
         sign_in u
-        allow_any_instance_of(ProjectsConcern).to receive(:current_project).and_return(@current_project)
+        stub_current_project_with @current_project
       end
 
-      it "should update page - logged in" do
+      it "should update page" do
         p = create(:page, { project: @current_project })
         expect(p.daily_run).to be_falsey
         patch page_path(p), params: { page: { daily_run: 1 } }, as: :json
