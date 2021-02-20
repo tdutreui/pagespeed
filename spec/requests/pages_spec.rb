@@ -34,15 +34,15 @@ RSpec.describe "Pages", type: :request do
     end
 
     context "logged in" do
+      let(:u) {create(:user_with_project)}
+      let(:current_project) {u.projects.first}
       before do
-        u = create(:user_with_project)
-        @current_project = u.projects.first
         sign_in u
-        stub_current_project_with @current_project
+        stub_current_project_with current_project
       end
 
       it "should update page" do
-        p = create(:page, { project: @current_project })
+        p = create(:page, { project: current_project })
         expect(p.daily_run).to be_falsey
         patch page_path(p), params: { page: { daily_run: 1 } }, as: :json
         expect(response).to have_http_status :ok
@@ -53,12 +53,10 @@ RSpec.describe "Pages", type: :request do
   end
 
   describe "read pages" do
-    before do
-      @p = create(:page)
-    end
+    let(:p) {create(:page)}
 
     it "should show a page" do
-      get page_path(@p)
+      get page_path(p)
       expect(response).to have_http_status :ok
     end
 
