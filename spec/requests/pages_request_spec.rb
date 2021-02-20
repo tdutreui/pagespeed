@@ -53,4 +53,20 @@ RSpec.describe "Pages", type: :request do
 
   end
 
+  describe "read pages" do
+    before do
+      @p = create(:page)
+    end
+
+    it "should show a page" do
+      get page_path(@p)
+      expect(response).to have_http_status :ok
+    end
+
+    it "should show the page index" do
+      get pages_path
+      expect(response).to have_http_status :ok
+    end
+  end
+
 end
