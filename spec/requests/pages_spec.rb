@@ -6,7 +6,6 @@ RSpec.describe "Pages", type: :request do
   end
 
   describe "Analyze page" do
-
     it "should reject invalid urls" do
       post analyse_pages_path, params: { page: { url: "an_invalid_url" } }
       expect(response).to have_http_status 500
@@ -34,29 +33,30 @@ RSpec.describe "Pages", type: :request do
     end
 
     context "logged in" do
-      let(:u) {create(:user_with_project)}
-      let(:current_project) {u.projects.first}
+      let(:u) { create(:user_with_project) }
+      let(:current_project) { u.projects.first }
+      let(:page) { create(:page, { project: current_project })}
+
       before do
         sign_in u
         stub_current_project_with current_project
       end
 
       it "should update page" do
-        p = create(:page, { project: current_project })
-        expect(p.daily_run).to be_falsey
-        patch page_path(p), params: { page: { daily_run: 1 } }, as: :json
+        expect(page.daily_run).to be_falsey
+        patch page_path(page), params: { page: { daily_run: 1 } }, as: :json
         expect(response).to have_http_status :ok
-        expect(p.reload.daily_run).to be true
+        expect(page.reload.daily_run).to be true
       end
     end
 
   end
 
   describe "read pages" do
-    let(:p) {create(:page)}
+    let(:page) { create(:page) }
 
     it "should show a page" do
-      get page_path(p)
+      get page_path(page)
       expect(response).to have_http_status :ok
     end
 
