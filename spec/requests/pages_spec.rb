@@ -8,13 +8,24 @@ RSpec.describe "Pages", type: :request do
   describe "Analyze page" do
     it "should reject invalid urls" do
       post analyse_pages_path, params: { page: { url: "an_invalid_url" } }
-      expect(response).to have_http_status 500
+      expect(response).not_to have_http_status 200
       expect(Page.count).to eq 0
     end
 
     it "should create a page with valid url" do
       post analyse_pages_path, params: { page: { url: "https://www.hey.com" } }
       expect(Page.count).to eq 1
+      p = Page.first
+      expect(response).to redirect_to p #redirects to page
+      expect([p.score_mobile, p.score_desktop].all? { |score| score > 0 }).to eq true
+    end
+
+    it "should add a report to an existing page with valid url" do
+      2.times do |i|
+        post analyse_pages_path, params: { page: { url: "https://www.hey.com" } }
+        expect(Page.count).to eq 1
+        expect(Page.first.reports.count).to eq i + 1
+      end
       p = Page.first
       expect(response).to redirect_to p #redirects to page
       expect([p.score_mobile, p.score_desktop].all? { |score| score > 0 }).to eq true
