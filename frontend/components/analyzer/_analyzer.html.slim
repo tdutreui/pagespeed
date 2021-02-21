@@ -1,6 +1,6 @@
-.analyzer
-  = form_for Page.new, url: analyse_pages_path, html: {class: 'analyzer-form'} do |f|
+.analyzer(data-controller='analyzer')
+  = form_for Page.new, remote: true, url: analyse_pages_path, html: { class: 'analyzer-form' }, data: { target: 'analyzer.form' } do |f|
     .analyzer-form-field
-      = f.text_field :url, value: @url, placeholder: 'Enter a web page URL', required: true
+      = f.text_field :url, value: @url, placeholder: 'Enter a web page URL', required: true, data: { target: 'analyzer.url' }
     .analyzer-form-submit
-      = f.submit 'Analyze'
+      = f.submit 'Analyze', data: { 'disable-with': 'Please wait...' }

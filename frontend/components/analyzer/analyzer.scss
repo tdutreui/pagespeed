@@ -19,11 +19,14 @@
         padding-left: 1rem;
         background: white;
         font-size: .9rem;
-        margin: 0;
         width: 100%;
         border: none;
         height: 2.5rem;
         margin: 0.2rem;
+
+        &.is-error {
+          background-color: lightpink;
+        }
       }
     }
 

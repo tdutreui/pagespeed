@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @current_page='page'
+    @current_page = 'page'
   end
 
   def analyse
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
           format.html { redirect_to @page, notice: 'Page was successfully created.' }
           format.json { render :show, status: :created, location: @page }
         else
-          format.html { render :home }
+          format.html { head :unprocessable_entity }
           format.json { render json: @page.errors, status: :unprocessable_entity }
         end
       end
@@ -73,6 +73,6 @@ class PagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def page_params
-    params.require(:page).permit(:url,:daily_run, :weekly_run, :send_drop_alert_email)
+    params.require(:page).permit(:url, :daily_run, :weekly_run, :send_drop_alert_email)
   end
 end
