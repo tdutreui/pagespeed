@@ -5,7 +5,7 @@ module BillboardTextPanelComponent
 
   def items
     webm_posts_url = 'https://webmasters.googleblog.com/search/label/speed'
-    email_link= mail_to 'thomas.dutreuilh@gmail.com', 'Email me'
+    email_link = mail_to 'thomas.dutreuilh.pro@gmail.com', 'Email me'
     lighthouse_url='https://github.com/GoogleChrome/lighthouse'
     [
       {
