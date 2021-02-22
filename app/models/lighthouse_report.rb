@@ -8,6 +8,12 @@ class LighthouseReport < ApplicationRecord
 
   delegate :send_drop_alert_email, :url, :valid_url, to: :page
 
+  def report strategy
+    JSON.parse(strategy == 'desktop' ? json_report_desktop : json_report_mobile)
+  end
+
+  private
+
   def do_lighthouse_report!
     r = run_pagespeed(url: page.valid_url, strategy: 'mobile')
     self.json_report_mobile = r.to_json
@@ -21,10 +27,6 @@ class LighthouseReport < ApplicationRecord
   def set_scores!
     self.score_desktop = (self.report('desktop')['lighthouseResult']["categories"]["performance"]["score"] * 100).round rescue nil
     self.score_mobile = (self.report('mobile')['lighthouseResult']["categories"]["performance"]["score"] * 100).round rescue nil
-  end
-
-  def report strategy
-    JSON.parse(strategy == 'desktop' ? json_report_desktop : json_report_mobile)
   end
 
   def send_score_drop_alert
