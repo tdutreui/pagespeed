@@ -6,7 +6,7 @@ module LighthouseReportsSpecHelpers
     responses = []
     10.times do
       another_response = response.deep_dup
-      another_response['lighthouseResult']["categories"]["performance"]["score"] = rand.round(2)
+      another_response['lighthouseResult']["categories"]["performance"]["score"] = rand(0.01..1.0).round(2)
       responses << another_response
     end
 
