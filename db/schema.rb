@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_30_111718) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "lighthouse_reports", force: :cascade do |t|
     t.text "json_report_desktop"
     t.integer "score_desktop"
@@ -19,14 +22,14 @@ ActiveRecord::Schema.define(version: 2021_01_30_111718) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "json_report_mobile"
     t.integer "score_mobile"
-    t.integer "page_id"
+    t.bigint "page_id"
     t.index ["page_id"], name: "index_lighthouse_reports_on_page_id"
   end
 
   create_table "pages", force: :cascade do |t|
     t.string "url"
     t.string "valid_url"
-    t.integer "project_id"
+    t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "daily_run"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_111718) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "domain"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
