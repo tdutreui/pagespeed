@@ -8,7 +8,7 @@ FactoryBot.define do
 
     factory :user_with_project do
       after(:create) do |user, evaluator|
-        create_list(:project, 1, user: user)
+        create(:project, user: user)
       end
     end
   end
