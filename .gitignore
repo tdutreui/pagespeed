@@ -35,8 +35,6 @@ yarn-debug.log*
 /coverage/
 
 # Ignore application configuration
-/config/application.yml
-
 /config/credentials/production.key
 /config/credentials/development.key
 /config/credentials.yml.enc

@@ -51,7 +51,6 @@ group :development, :test do
   gem "letter_opener"
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'figaro'
 end
 
 group :development do

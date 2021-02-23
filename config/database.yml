@@ -5,8 +5,8 @@ default: &default
   pool: 5
   host: localhost
   port: 5432
-  username: <%= ENV['POSTGRES_HOST'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  username: <%= Rails.application.credentials.postgres[:username] %>
+  password: <%= Rails.application.credentials.postgres[:password] %>
 
 development:
   <<: *default
