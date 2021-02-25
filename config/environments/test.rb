@@ -5,6 +5,7 @@
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  Rails.application.credentials.config.merge!(YAML.load_file('config/local_credentials.yml').deep_symbolize_keys)
 
   config.cache_classes = false
 
