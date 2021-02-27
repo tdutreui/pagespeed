@@ -69,7 +69,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = smtp_credentials
 
   config.emails = {
-    from: "<#{APPNAME}> #{smtp_credentials[:user_name]}",
+    from: "#{APPNAME} <#{smtp_credentials[:user_name]}>",
     staff: 'thomas@rubytom.fr'
   }
 
