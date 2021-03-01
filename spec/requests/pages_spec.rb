@@ -16,7 +16,7 @@ RSpec.describe "Pages", type: :request do
       post analyse_pages_path, params: { page: { url: "https://www.hey.com" } }
       expect(Page.count).to eq 1
       p = Page.first
-      expect(response).to redirect_to p #redirects to page
+      expect(response).to redirect_to p.last_report #redirects to report
       expect([p.score_mobile, p.score_desktop].all? { |score| score > 0 }).to eq true
     end
 
@@ -27,7 +27,7 @@ RSpec.describe "Pages", type: :request do
         expect(Page.first.reports.count).to eq i + 1
       end
       p = Page.first
-      expect(response).to redirect_to p #redirects to page
+      expect(response).to redirect_to p.last_report #redirects to report
       expect([p.score_mobile, p.score_desktop].all? { |score| score > 0 }).to eq true
     end
   end

@@ -15,11 +15,15 @@ class Page < ApplicationRecord
                                                  message: "url already exist in this project" }
 
   def score_mobile
-    lighthouse_reports.last.score_mobile
+    last_report.score_mobile
   end
 
   def score_desktop
-    lighthouse_reports.last.score_desktop
+    last_report.score_desktop
+  end
+
+  def last_report
+    lighthouse_reports.last
   end
 
   def add_lighthouse_report

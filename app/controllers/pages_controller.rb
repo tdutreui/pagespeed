@@ -22,14 +22,14 @@ class PagesController < ApplicationController
     if existing_page
       existing_page.add_lighthouse_report
       respond_to do |format|
-        format.html { redirect_to existing_page }
-        format.json { render :show, status: :ok, location: @page }
+        format.html { redirect_to existing_page.last_report }
+        format.json { render :show, status: :ok, location: @page.last_report }
       end
     else
       respond_to do |format|
         if @page.save
-          format.html { redirect_to @page, notice: 'Page was successfully created.' }
-          format.json { render :show, status: :created, location: @page }
+          format.html { redirect_to @page.last_report }
+          format.json { render :show, status: :created, location: @page.last_report }
         else
           format.html { head :unprocessable_entity }
           format.json { render json: @page.errors, status: :unprocessable_entity }
